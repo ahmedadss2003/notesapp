@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notesapp/widgets/custom_app_bar.dart';
+import 'package:notesapp/widgets/custom_text_form_field.dart';
 
 class EditNewViewBody extends StatelessWidget {
   const EditNewViewBody({super.key});
@@ -22,12 +23,23 @@ class CustomEditView extends StatelessWidget {
       child: Column(
         
         children: [
-          // SizedBox(height: 50,),
-          CustomAppBar(
+          
+        CustomAppBar(
             icon: Icons.done,
             title: "Edit Now",
-          )
-      
+          ),
+        const SizedBox(height: 50,),
+        CustomTextField(
+          hint: "Tittle",
+          horizontalPadding: 20,
+          verticalPadding: 30,
+        ),
+         const SizedBox(height: 30,),
+        CustomTextField(
+          hint: "Content",
+          horizontalPadding: 20,
+          verticalPadding: 60,
+        ),
         ],
       ),
     );
