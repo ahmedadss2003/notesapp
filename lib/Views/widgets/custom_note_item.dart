@@ -12,7 +12,7 @@ class NoteItem extends StatelessWidget {
       width: double.infinity,
       // height: 200,
       decoration:const BoxDecoration(
-        color: Color.fromARGB(255, 168, 152, 150) ,
+        color: Color.fromARGB(255, 176, 188, 7) ,
         borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
       child: Column(
@@ -26,14 +26,15 @@ class NoteItem extends StatelessWidget {
               'Flutter Tips',
               style: TextStyle(
                 fontSize: 35,
-                color: Colors.white
+                color: Colors.black
               ),
             ),
           ),
           subtitle:const Text(
             'Build Your Career With Ahmed Ashraf',
             style: TextStyle(
-              fontSize: 19
+              fontSize: 19,
+              color: Colors.black
             ),
           ),
           trailing: IconButton(
