@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notesapp/Views/widgets/custom_note_item.dart';
+import 'package:notesapp/widgets/custom_note_item.dart';
 
 List<MaterialColor>colors =[
   
