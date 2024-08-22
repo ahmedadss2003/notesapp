@@ -1,0 +1,1 @@
+const kNOteBox ="Knotes_box";
