@@ -19,7 +19,7 @@ class NotesScreen extends StatelessWidget {
             ),
             context: context,
              builder:(context){
-             return const AddNote() ; 
+             return const AddNotebottomSheet() ; 
              
              }
           );

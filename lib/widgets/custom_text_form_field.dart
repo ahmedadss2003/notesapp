@@ -1,18 +1,27 @@
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
-class CustomTextField extends StatelessWidget {
-   CustomTextField({super.key,this.onChanged,this.hint,this.text ,this.keyboardType ,this.horizontalPadding , this.verticalPadding});
 
-String? hint;
-double? horizontalPadding , verticalPadding ;
-String? text;
-Function(String)? onChanged;
-TextInputType? keyboardType ;
+class CustomTextField extends StatelessWidget {
+ const  CustomTextField({super.key,this.onChanged,this.hint,this.text ,this.keyboardType ,this.horizontalPadding , this.verticalPadding, this.onSaved});
+
+final String? hint;
+final double? horizontalPadding , verticalPadding ;
+final String? text;
+final void Function(String?)? onSaved ;
+final Function(String)? onChanged;
+final TextInputType? keyboardType ;
 
   @override
   Widget build(BuildContext context) {
-    return  TextField(
+    return  TextFormField(
+      onSaved: onSaved,
+      validator: (value){
+        if(value?.isEmpty==true){
+          return "Field Is Required" ;
+        }else{
+          return null ;
+        }
+      },
       keyboardType:keyboardType ,
       onChanged:onChanged,
             decoration: InputDecoration(
