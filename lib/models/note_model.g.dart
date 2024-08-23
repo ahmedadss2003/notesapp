@@ -6,7 +6,7 @@ part of 'note_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class NoteModelAdapter extends TypeAdapter<NoteModel> {
+class NoteModelAdapter extends TypeAdapter<NoteModel> { //(NoteModelAdapter) this is type Adapter
   @override
   final int typeId = 0;
 
