@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:notesapp/widgets/notes_list_view.dart';
 
-// ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
-    CustomButton({super.key,this.onPressed ,required this.text});
+  const  CustomButton({super.key,this.onPressed ,required this.text});
   final String text;
-  VoidCallback? onPressed;
+  final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
