@@ -12,24 +12,25 @@ class AddNotebottomSheet extends StatelessWidget {
     return BlocProvider(
       create: (context) => AddNoteCubit(),
       child: Container(
-        padding: const EdgeInsets.all(10),
-        child: BlocConsumer<AddNoteCubit, AddNoteState>(
-          listener: (context, state) {
-            if (state is AddNoteFailure) {
-              print("please Add Note Again");
-            }
-            if (state is AddNoteSuccess) {
-              Navigator.pop(context);
-            }
-          },
-          builder: (context, state) {
-            return ModalProgressHUD(
-              inAsyncCall: state is AddNoteLoading ? true : false,
-              child: AddNoteForm(),
-            );
-          },
+       
+          padding: const EdgeInsets.all(10),
+          child: BlocConsumer<AddNoteCubit, AddNoteState>(//here i can use bloclistner only but Becuse use AbsorbPointer i will use blocconsumer
+            listener: (context, state) {
+              if(state is AddNoteFailure){
+                print("please Add Note Again");
+              }
+              if(state is AddNoteSuccess){
+                Navigator.pop(context);
+              }
+            }, 
+            builder: (context, state) { 
+              return  AbsorbPointer(
+                absorbing: state is AddNoteLoading? true :false,
+                child:const AddNoteForm()
+                );
+            },
+          ),
         ),
-      ),
     );
   }
 }
