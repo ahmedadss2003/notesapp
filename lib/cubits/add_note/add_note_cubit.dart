@@ -26,7 +26,7 @@ class AddNoteCubit extends Cubit<AddNoteState> {
   try{
   var notesBox =Hive.box<NoteModel>(kNOteBox);//This method is used to open an existing Hive box
   await notesBox.add(note);
-  emit(AddNoteSuccess()) ;
+  emit(AddNoteSuccess());
   }catch(e) {
   emit(AddNoteFailure(errMessage: e.toString()));
   }
