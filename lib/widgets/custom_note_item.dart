@@ -1,11 +1,19 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notesapp/models/note_model.dart';
 import 'package:notesapp/widgets/edit_new_view_body.dart';
 
-class NoteItem extends StatelessWidget {
-   NoteItem({super.key ,required this.containerColor});
-  Color containerColor ;
+class NoteItem extends StatefulWidget {
+  const NoteItem({super.key ,required this.containerColor, required this.noteModel});
+  final Color containerColor ;
+  final NoteModel noteModel ;
+
+  @override
+  State<NoteItem> createState() => _NoteItemState();
+}
+
+class _NoteItemState extends State<NoteItem> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -19,7 +27,7 @@ class NoteItem extends StatelessWidget {
         width: double.infinity,
         // height: 200,
         decoration: BoxDecoration(
-          color: containerColor ,
+          color: widget.containerColor ,
           borderRadius:const BorderRadius.all(Radius.circular(16)),
         ),
         child: Column(
@@ -27,25 +35,29 @@ class NoteItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-            title:const Padding(
+            title: Padding(
               padding:  EdgeInsets.only(bottom: 20),
               child:  Text(
-                'Flutter Tips',
-                style: TextStyle(
+                widget.noteModel.title,
+                style:const TextStyle(
                   fontSize: 35,
                   color: Colors.black
                 ),
               ),
             ),
-            subtitle:const Text(
-              'Build Your Career With Ahmed Ashraf',
-              style: TextStyle(
+            subtitle: Text(
+              widget.noteModel.content,
+              style:const TextStyle(
                 fontSize: 19,
                 color: Colors.black
               ),
             ),
             trailing: IconButton(
-              onPressed: (){},
+              onPressed: (){
+                setState(() {
+                widget.noteModel.delete();
+                });
+              },
               icon:const Icon(
               
               FontAwesomeIcons.trash,
@@ -53,10 +65,10 @@ class NoteItem extends StatelessWidget {
               size: 25  ,
             ),) 
                 ),
-            const Padding(
+             Padding(
               padding:  EdgeInsets.only(right: 35,top: 30),
               child:  Text(
-                "21-08-2024",
+                widget.noteModel.date,
                 style: TextStyle(
                   fontSize: 16
                 ),
