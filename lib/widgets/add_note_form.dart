@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:notesapp/cubits/add_note/add_note_cubit.dart';
 import 'package:notesapp/models/note_model.dart';
+import 'package:notesapp/widgets/colors_list_view.dart';
 import 'package:notesapp/widgets/custom_button.dart';
 import 'package:notesapp/widgets/custom_text_form_field.dart';
+import 'package:notesapp/widgets/notes_list_view.dart';
 
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({
@@ -16,6 +18,7 @@ class AddNoteForm extends StatefulWidget {
 }
 
 class _AddNoteFormState extends State<AddNoteForm> {
+  
   @override
   final GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode
@@ -50,6 +53,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           const SizedBox(
             height: 50,
           ),
+          const ColorListForBicker(),
           BlocBuilder<AddNoteCubit, AddNoteState>(
 
             builder: (context, state) {
@@ -81,3 +85,4 @@ class _AddNoteFormState extends State<AddNoteForm> {
     );
   }
 }
+
