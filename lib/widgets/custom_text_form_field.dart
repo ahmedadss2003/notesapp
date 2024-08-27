@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 class CustomTextField extends StatelessWidget {
- const  CustomTextField({super.key,this.onChanged,this.hint,this.text ,this.keyboardType ,this.horizontalPadding , this.verticalPadding, this.onSaved});
+ const  CustomTextField({super.key,this.onChanged,this.hint,this.text ,this.keyboardType ,this.horizontalPadding , this.verticalPadding, this.onSaved, this.controller});
 
 final String? hint;
 final double? horizontalPadding , verticalPadding ;
@@ -10,10 +10,11 @@ final String? text;
 final void Function(String?)? onSaved ;
 final Function(String)? onChanged;
 final TextInputType? keyboardType ;
-
+final TextEditingController? controller ;
   @override
   Widget build(BuildContext context) {
     return  TextFormField(
+      controller: controller,
       onSaved: onSaved,
       validator: (value){
         if(value?.isEmpty==true){

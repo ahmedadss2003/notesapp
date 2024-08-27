@@ -1,25 +1,24 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notesapp/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notesapp/models/note_model.dart';
-import 'package:notesapp/widgets/edit_new_view_body.dart';
+import 'package:notesapp/widgets/edit_note_view_body.dart';
 
-class NoteItem extends StatefulWidget {
+class NoteItem extends StatelessWidget {
   const NoteItem({super.key ,required this.containerColor, required this.noteModel});
   final Color containerColor ;
   final NoteModel noteModel ;
 
   @override
-  State<NoteItem> createState() => _NoteItemState();
-}
-
-class _NoteItemState extends State<NoteItem> {
-  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
         Navigator.push(context, MaterialPageRoute(builder: (context){
-          return EditNewViewBody() ;
+          return EditNewViewBody(
+            noteModel: noteModel,
+          ) ;
         }));
       },
       child: Container(
@@ -27,7 +26,7 @@ class _NoteItemState extends State<NoteItem> {
         width: double.infinity,
         // height: 200,
         decoration: BoxDecoration(
-          color: widget.containerColor ,
+          color: containerColor ,
           borderRadius:const BorderRadius.all(Radius.circular(16)),
         ),
         child: Column(
@@ -38,7 +37,7 @@ class _NoteItemState extends State<NoteItem> {
             title: Padding(
               padding:  EdgeInsets.only(bottom: 20),
               child:  Text(
-                widget.noteModel.title,
+                noteModel.title,
                 style:const TextStyle(
                   fontSize: 35,
                   color: Colors.black
@@ -46,7 +45,7 @@ class _NoteItemState extends State<NoteItem> {
               ),
             ),
             subtitle: Text(
-              widget.noteModel.content,
+              noteModel.content,
               style:const TextStyle(
                 fontSize: 19,
                 color: Colors.black
@@ -54,9 +53,8 @@ class _NoteItemState extends State<NoteItem> {
             ),
             trailing: IconButton(
               onPressed: (){
-                setState(() {
-                widget.noteModel.delete();
-                });
+                noteModel.delete();
+                BlocProvider.of<NotesCubit>(context).fetchAllNotes();
               },
               icon:const Icon(
               
@@ -68,7 +66,7 @@ class _NoteItemState extends State<NoteItem> {
              Padding(
               padding:  EdgeInsets.only(right: 35,top: 30),
               child:  Text(
-                widget.noteModel.date,
+                noteModel.date,
                 style: TextStyle(
                   fontSize: 16
                 ),

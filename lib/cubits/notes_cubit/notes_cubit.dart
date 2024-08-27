@@ -8,7 +8,6 @@ part 'notes_state.dart';
 
 class NotesCubit extends Cubit<NotesState> {
   NotesCubit() : super(NotesInitial());
-//  List<NoteModel>? notes ;
   List<NoteModel> fetchAllNotes(){
     // here i don,t need to add async and not need add try,catch and use NoteFailure => this is local DB 
      
@@ -16,6 +15,7 @@ class NotesCubit extends Cubit<NotesState> {
       // var notesBox =Hive.box<NoteModel>(kNOteBox);
       // Now i need read the data from Hive 
       List<NoteModel> notes =notesBox.values.toList() ;
+      emit(NotesSuccess());
       return notes ;
       
   } 
