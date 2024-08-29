@@ -5,10 +5,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notesapp/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notesapp/models/note_model.dart';
 import 'package:notesapp/widgets/edit_note_view_body.dart';
+import 'package:notesapp/widgets/notes_list_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key ,required this.containerColor, required this.noteModel});
-  final Color containerColor ;
+  const NoteItem({super.key , required this.noteModel});
+  
   final NoteModel noteModel ;
 
   @override
@@ -25,9 +26,10 @@ class NoteItem extends StatelessWidget {
         padding:const EdgeInsets.only(left: 20,top: 20,bottom: 30),
         width: double.infinity,
         // height: 200,
-        decoration: BoxDecoration(
-          color: containerColor ,
-          borderRadius:const BorderRadius.all(Radius.circular(16)),
+        decoration:const BoxDecoration(
+          
+          color: Color.fromARGB(255, 7, 133, 172) ,
+          borderRadius: BorderRadius.all(Radius.circular(16)),
         ),
         child: Column(
       
@@ -35,7 +37,7 @@ class NoteItem extends StatelessWidget {
           children: [
             ListTile(
             title: Padding(
-              padding:  EdgeInsets.only(bottom: 20),
+              padding:const  EdgeInsets.only(bottom: 20),
               child:  Text(
                 noteModel.title,
                 style:const TextStyle(

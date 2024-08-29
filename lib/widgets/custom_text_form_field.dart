@@ -36,6 +36,7 @@ final TextEditingController? controller ;
             label: Text(
               '$hint',
               style:const  TextStyle(
+                fontSize: 25,
                 color: Colors.white,
               ),
               ),

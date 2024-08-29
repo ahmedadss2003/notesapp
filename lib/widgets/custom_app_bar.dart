@@ -10,14 +10,14 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Row(
       children: [
-        SizedBox(height: 60,),
+        const SizedBox(height: 60,),
         Text(
         title,
         style:const TextStyle(
-          fontSize: 28,
+          fontSize: 38,
         ),
         ),
-        Spacer(),
+        const Spacer(),
         CustomButton(
           onPressed: onPressed,
           icon:icon,

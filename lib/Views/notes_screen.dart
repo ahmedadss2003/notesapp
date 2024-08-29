@@ -21,6 +21,7 @@ class NotesScreen extends StatelessWidget {
         },
         shape: const CircleBorder(),
         child: const Icon(
+          
           Icons.add,
         ),
       ),

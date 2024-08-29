@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notesapp/cubits/add_note/add_note_cubit.dart';
 
 class ContainerColor extends StatelessWidget {
   const ContainerColor({super.key, required this.color, required this.isSelected});
@@ -51,6 +53,7 @@ class _ColorListForBickerState extends State<ColorListForBicker> {
             onTap: () {
               setState(() {
                 selectedIndex = index; // Update the selected index
+                BlocProvider.of<AddNoteCubit>(context).color = colorsList[index];
               });
             },
             child: ContainerColor(

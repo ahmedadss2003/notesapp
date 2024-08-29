@@ -26,7 +26,7 @@ class _CustomEditViewBodyState extends State<CustomEditViewBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.symmetric(horizontal: 20 , vertical: 40),
       child: Column(
         
         children: [

@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:meta/meta.dart';
 import 'package:notesapp/constants.dart';
@@ -20,8 +21,9 @@ class AddNoteCubit extends Cubit<AddNoteState> {
 // }
 
 //  }
-
+  Color? color =Color(0xff383F51);
   addNote(NoteModel note)async{
+  note.color = color!.value;
   emit(AddNoteLoading()) ;
   try{
   var notesBox =Hive.box<NoteModel>(kNOteBox);//This method is used to open an existing Hive box
