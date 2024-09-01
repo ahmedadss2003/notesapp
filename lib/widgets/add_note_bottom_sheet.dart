@@ -12,7 +12,6 @@ class AddNotebottomSheet extends StatelessWidget {
     return BlocProvider(
       create: (context) => AddNoteCubit(),
       child: Container(
-       
           padding: const EdgeInsets.all(10),
           child: BlocConsumer<AddNoteCubit, AddNoteState>(//here i can use bloclistner only but Becuse use AbsorbPointer i will use blocconsumer
             listener: (context, state) {

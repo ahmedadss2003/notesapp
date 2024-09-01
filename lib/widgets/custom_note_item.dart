@@ -5,7 +5,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notesapp/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notesapp/models/note_model.dart';
 import 'package:notesapp/widgets/edit_note_view_body.dart';
-import 'package:notesapp/widgets/notes_list_view.dart';
 
 class NoteItem extends StatelessWidget {
   const NoteItem({super.key , required this.noteModel});
